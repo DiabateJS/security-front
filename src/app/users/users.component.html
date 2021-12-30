@@ -1,3 +1,24 @@
 <div id="container">
-    <p>users works !</p>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <td>Id</td>
+                <td>Fullname</td>
+                <td>Login</td>
+                <td>Password</td>
+                <td>Email</td>
+                <td>Actions</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <td>{{user.id}}</td>
+                <td>{{user.fullname}}</td>
+                <td>{{user.login}}</td>
+                <td>{{writePassword(user.password)}}</td>
+                <td>{{user.email}}</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
 </div>
