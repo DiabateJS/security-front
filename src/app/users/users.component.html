@@ -7,17 +7,17 @@
                 <td>Login</td>
                 <td>Password</td>
                 <td>Email</td>
-                <td>Actions</td>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let user of users">
-                <td>{{user.id}}</td>
+                <td>
+                    <a [routerLink]="['/user/', user.id]">{{user.id}}</a>
+                </td>
                 <td>{{user.fullname}}</td>
                 <td>{{user.login}}</td>
                 <td>{{writePassword(user.password)}}</td>
                 <td>{{user.email}}</td>
-                <td></td>
             </tr>
         </tbody>
     </table>

@@ -26,4 +26,12 @@ export class UsersComponent implements OnInit {
     return res;
   }
 
+  edit(){
+
+  }
+
+  delete(){
+
+  }
+
 }

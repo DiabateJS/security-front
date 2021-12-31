@@ -18,4 +18,10 @@ export class UserService {
     return this.httpClient.get<User[]>(url, HTTP_OPTIONS);
   }
 
+  getUser(id: number): Observable<User> {
+    const urlBase = environment.urlBack;
+    let url = urlBase + 'method=get&detail=user&id='+id;
+    return this.httpClient.get<User>(url, HTTP_OPTIONS);
+  }
+
 }

@@ -9,6 +9,8 @@ import { DashbordComponent } from './dashbord/dashbord.component';
 import { FooterComponent } from './footer/footer.component';
 import { UsersComponent } from './users/users.component';
 import {HttpClientModule} from '@angular/common/http';
+import { UserComponent } from './user/user.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -17,11 +19,13 @@ import {HttpClientModule} from '@angular/common/http';
     TopbarComponent,
     DashbordComponent,
     FooterComponent,
-    UsersComponent
+    UsersComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     HttpClientModule
   ],
   providers: [],
