@@ -10,31 +10,34 @@ import {ResponseData} from "./models/response-data";
   providedIn: 'root'
 })
 export class UserService {
-
-  constructor(private httpClient: HttpClient) { }
+  urlBase: string = '';
+  constructor(private httpClient: HttpClient) {
+    this.urlBase = environment.urlBack;
+  }
 
   getUsers(): Observable<User[]> {
-    const urlBase = environment.urlBack;
-    let url = urlBase + 'method=get&detail=users';
+    let url = this.urlBase + 'method=get&detail=users';
     return this.httpClient.get<User[]>(url, HTTP_OPTIONS);
   }
 
   getUser(id: number): Observable<User> {
-    const urlBase = environment.urlBack;
-    let url = urlBase + 'method=get&detail=user&id='+id;
+    let url = this.urlBase + 'method=get&detail=user&id='+id;
     return this.httpClient.get<User>(url, HTTP_OPTIONS);
   }
 
   createUser(user: User): Observable<ResponseData> {
-    const urlBase = environment.urlBack;
-    let url = urlBase + 'method=post&detail=user';
+    let url = this.urlBase + 'method=post&detail=user';
     return this.httpClient.post<ResponseData>(url, user, HTTP_OPTIONS);
   }
 
   deleteUser(userId: number): Observable<ResponseData> {
-    const urlBase = environment.urlBack;
-    let url = urlBase + 'method=delete&detail=user&id='+userId;
+    let url = this.urlBase + 'method=delete&detail=user&id='+userId;
     return this.httpClient.get<ResponseData>(url, HTTP_OPTIONS);
+  }
+  
+  updateUser(user: User): Observable<ResponseData> {
+    let url = this.urlBase + 'method=put&detail=user';
+    return this.httpClient.post<ResponseData>(url, user, HTTP_OPTIONS);
   }
 
 }

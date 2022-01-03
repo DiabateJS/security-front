@@ -26,7 +26,10 @@ export class UserComponent implements OnInit {
   }
 
   updateUser(){
-
+    this.user.id = ''+this.userId;
+    this.userService.updateUser(this.user).subscribe((response: ResponseData) => {
+      console.log(response);
+    });
   }
 
   deleteUser(){
