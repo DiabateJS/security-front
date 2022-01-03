@@ -4,6 +4,7 @@ import {HttpClient} from "@angular/common/http";
 import {environment} from "../environments/environment";
 import {HTTP_OPTIONS} from "./models/constants";
 import {Observable} from "rxjs";
+import {ResponseData} from "./models/response-data";
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +23,18 @@ export class UserService {
     const urlBase = environment.urlBack;
     let url = urlBase + 'method=get&detail=user&id='+id;
     return this.httpClient.get<User>(url, HTTP_OPTIONS);
+  }
+
+  createUser(user: User): Observable<ResponseData> {
+    const urlBase = environment.urlBack;
+    let url = urlBase + 'method=post&detail=user';
+    return this.httpClient.post<ResponseData>(url, user, HTTP_OPTIONS);
+  }
+
+  deleteUser(userId: number): Observable<ResponseData> {
+    const urlBase = environment.urlBack;
+    let url = urlBase + 'method=delete&detail=user&id='+userId;
+    return this.httpClient.get<ResponseData>(url, HTTP_OPTIONS);
   }
 
 }

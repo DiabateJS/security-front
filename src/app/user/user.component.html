@@ -1,5 +1,5 @@
 <div id="container">
-<a routerLinkActive="active" routerLink="/users">Retour liste utilisateurs</a>
+<a routerLinkActive="active" routerLink="/users">Retour liste utilisateurs</a> | <a routerLinkActive="active" routerLink="/new-user">Créer un utilisateur</a>
     <br><br>
         <div class="form-group">
             <label>Id</label>
@@ -27,5 +27,6 @@
             <label for="inputAddress2">Email</label>
             <input type="text" class="form-control" id="inputAddress2" [(ngModel)]="user.email">
         </div>
-        <button class="btn btn-primary">Enregistrer</button>
+        <button class="btn btn-primary" (click)="updateUser()">Enregistrer</button>
+        <button class="btn btn-danger" (click)="deleteUser()">Supprimer</button>
 </div>

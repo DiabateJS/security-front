@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import {DashbordComponent} from "./dashbord/dashbord.component";
 import {UsersComponent} from "./users/users.component";
 import {UserComponent} from "./user/user.component";
+import {NewUserComponent} from "./new-user/new-user.component";
 
 const routes: Routes = [
   {
@@ -14,11 +15,15 @@ const routes: Routes = [
     component: UsersComponent
   },
   {
+    path:'new-user',
+    component: NewUserComponent
+  },
+  {
     path:'user/:id',
     component: UserComponent
   },
-  { path: '',   redirectTo: 'dashbord', pathMatch: 'full' },
-  { path: '**', component: DashbordComponent }
+  { path: '',   redirectTo: 'users', pathMatch: 'full' },
+  { path: '**', component: UsersComponent }
 ];
 
 @NgModule({
